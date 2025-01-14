@@ -7,7 +7,10 @@ on:
       - synchronize
       - reopened
 permissions:
-  pull-requests: write  # This grants write access to PRs, including posting comments.
+  contents: read  # Allows the workflow to read repository contents (e.g., code)
+  pull-requests: write  # Allows the workflow to post comments on PRs and create reviews
+  issues: write  # Allows the workflow to create issues or comment on them
+  checks: write  # Allows the workflow to create and update check runs (optional)
 
 jobs:
   ai-review:
