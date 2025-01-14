@@ -6,6 +6,8 @@ on:
       - opened
       - synchronize
       - reopened
+permissions:
+  pull-requests: write  # This grants write access to PRs, including posting comments.
 
 jobs:
   ai-review:
