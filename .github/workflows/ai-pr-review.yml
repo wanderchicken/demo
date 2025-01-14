@@ -28,7 +28,7 @@ jobs:
         id: ai_review
         run: |
           # Save the diff or changed files to a file
-          git diff origin/main...HEAD > pr_diff.txt
+          git diff origin/main..HEAD > pr_diff.txt
           
           # Get the PR URL from GitHub context
           pr_url="https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}"
