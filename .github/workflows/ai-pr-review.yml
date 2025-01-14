@@ -29,6 +29,8 @@ jobs:
 
       - name: Run AI Code Review
         id: ai_review
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}  # Pass the API key to the script
         run: |
           # Save the diff or changed files to a file
           git diff origin/main..HEAD > pr_diff.txt
