@@ -33,11 +33,13 @@ def review_code(pr_diff_file):
     try:
         # Send the code diff to OpenAI Codex to analyze and generate suggestions
         response = openai.chat.completions.create(
-            engine="code-davinci-002",  # Codex model for code-related tasks
-            prompt=f"Review the following code changes and provide suggestions or improvements:\n\n{code_diff}",
+            model="gpt-3.5-turbo",  # or "gpt-4" for more advanced feedback
+            messages=[
+                {"role": "system", "content": "You are a helpful code review assistant."},
+                {"role": "user", "content": f"Review the following code changes and provide suggestions or improvements:\n\n{code_diff}"}
+            ],
             max_tokens=500,  # Limit the response size
-            temperature=0.5,  # Creativity level
-            n=1  # Number of completions to generate
+            temperature=0.5,  # Creativity level (adjust as needed)
         )
         
         # Extract feedback from the AI response
