@@ -43,7 +43,7 @@ def review_code(pr_diff_file):
         )
         
         # Extract feedback from the AI response
-        ai_feedback = response['choices'][0]['message']['content'].strip()
+        ai_feedback = response.choices[0].message.content
         return ai_feedback
 
     except Exception as e:
