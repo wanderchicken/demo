@@ -13,13 +13,13 @@ if not openai.api_key:
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
 # Function to post a line-based review comment on the PR
-def post_pr_review_comment(pr_url, feedback, pr_number, commit_id, path, line):
+def post_pr_review_comment(pr_url, feedback, commit_id, path, line):
     headers = {
         "Authorization": f"Bearer {GITHUB_TOKEN}",
         "Accept": "application/vnd.github.v3+json"
     }
 
-    review_comment_url = f"https://api.github.com/repos/{os.getenv('GITHUB_REPOSITORY')}/pulls/{pr_number}/review/comments"
+    review_comment_url = f"{pr_url}/comments"
 
     payload = {
         "body": f"### AI Code Review Feedback\n\n{feedback}",
@@ -68,4 +68,4 @@ if __name__ == "__main__":
     print("AI Review Feedback:\n", feedback)
 
     # Post feedback as a review comment on the PR
-    post_pr_review_comment(pr_url, feedback, pr_number, commit_id, path, line)
+    post_pr_review_comment(pr_url, feedback, commit_id, path, line)
