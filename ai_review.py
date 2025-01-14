@@ -60,10 +60,9 @@ def review_code(pr_diff_file):
 if __name__ == "__main__":
     pr_diff_file = sys.argv[1]
     pr_url = sys.argv[2]  # Get the PR URL as an argument
-    pr_number = sys.argv[3]  # Get the PR number from the arguments
-    commit_id = sys.argv[4]  # Get the commit ID from the arguments
-    path = sys.argv[5]  # Get the file path (relative to the repository)
-    line = int(sys.argv[6])  # Get the line number in the file
+    commit_id = sys.argv[3]  # Get the commit ID from the arguments
+    path = 'test.py'  # Get the file path (relative to the repository)
+    line = 1
 
     feedback = review_code(pr_diff_file)
     print("AI Review Feedback:\n", feedback)
