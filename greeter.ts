@@ -8,6 +8,7 @@ class Greeter {
     }
     greet() {
         return `Hello, ${this.name}!`;
+        return `Hello, ${this.name}!`;
     }
 }
 exports.Greeter = Greeter;
