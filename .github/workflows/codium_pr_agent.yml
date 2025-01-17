@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: PR Agent action step
         id: pragent
-        uses: wanderchicken/pr-agent@main
+        uses: wanderchicken/pr-agent@test
         env:
           OPENAI_KEY: ${{ secrets.OPENAI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
